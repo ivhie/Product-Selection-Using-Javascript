@@ -1,0 +1,171 @@
+<style>
+a.active {
+  background-color:#000;
+  color:#fff;
+  text-decoration:none;
+}
+
+.circle_click { position:absolute; left:0; width:10px; height:10px; padding: 5px; border-radius:55px; border:1px solid #dc6e76; display:block;text-decoration:none;}
+ul {padding: 0px; margin: 30px 0;}
+ul li { padding: 10px 10px 10px 30px;	list-style:none; position:relative; margin-bottom:0px;}
+.selectible_shade a { padding: 5px; }
+
+#checkout_link { background-color:blue; padding:10px 15px; color:#fff; text-decoration:none;}
+
+</style>
+
+<script>
+
+	//const product_item = array();
+	//product_item['43903224807579']['mgd'] =  'https://dewha.co/cart/43903224807579:1'; // miracle glow duo - ivory
+	//product_item['43903224840347']['mgd'] =  'https://dewha.co/cart/43903224840347:1'; // miracle glow duo - natural
+	//product_item['45351140130971']['mgd2'] =  'https://dewha.co/cart/45351140130971:1'; // miracle glow duo 2 - ivory
+	//product_item['45351140196507']['mgd2'] =  'https://dewha.co/cart/45351140196507:1'; // miracle glow duo 2 - natural
+	//product_item['45351236862107']['mgd3'] =  'https://dewha.co/cart/45351236862107:1'; // miracle glow duo 3 - ivory
+	//product_item['45351236894875']['mgd3'] =  'https://dewha.co/cart/45351236894875:1'; // miracle glow duo 3 - natural
+	
+    function product_mgd() {
+        //var link = document.getElementById("link").getAttribute("product_id");   
+        var ivory_link = 'https://dewha.co/cart/43903224807579:1';
+        var natural_link = 'https://dewha.co/cart/43903224840347:1';
+        document.getElementById("link-ivory").setAttribute("href",ivory_link);
+        document.getElementById("link-natural").setAttribute("href",natural_link);
+		
+		 let i = document.getElementById("link-ivory"); // reset active shade class
+         i.className = "";
+		 let n = document.getElementById("link-natural"); // reset active shade class
+         n.className = "";
+		 
+		 // set class for selection
+		 let mgd = document.getElementById("product_mgd"); // set bundle 1 is selected/active
+         mgd.className = "circle_click active";
+		 let mgd2 = document.getElementById("product_mgd2"); // Reset
+         mgd2.className = "circle_click";
+		 let mgd3 = document.getElementById("product_mgd3"); // Reset
+         mgd3.className = "circle_click";
+		 
+		 document.getElementById("checkout_link").setAttribute("href",'#'); 
+		 document.getElementById("checkout_link").setAttribute("target",'');	 
+		
+        return false;
+   }
+   
+    function product_mgd2() {
+        //var link = document.getElementById("link").getAttribute("product_id");   
+        var ivory_link = 'https://dewha.co/cart/45351140130971:1';
+        var natural_link = 'https://dewha.co/cart/45351140196507:1';
+        //alert(ivory_link);
+        //alert(natural_link);
+        document.getElementById("link-ivory").setAttribute("href",ivory_link);
+        document.getElementById("link-natural").setAttribute("href",natural_link);
+		
+		let i = document.getElementById("link-ivory"); // reset active shade class
+        i.className = "";
+		let n = document.getElementById("link-natural"); // reset active shade class
+        n.className = "";
+		
+		 // set class for selection
+		 let mgd = document.getElementById("product_mgd"); // set bundle 1 is selected/active
+         mgd.className = "circle_click";
+		 let mgd2 = document.getElementById("product_mgd2"); // Reset
+         mgd2.className = "circle_click active";
+		 let mgd3 = document.getElementById("product_mgd3"); // Reset
+         mgd3.className = "circle_click";
+		 
+		 document.getElementById("checkout_link").setAttribute("href",'#'); 
+		 document.getElementById("checkout_link").setAttribute("target",'');
+        return false;
+   }
+   
+    function product_mgd3() {
+        //var link = document.getElementById("link").getAttribute("product_id");   
+        var ivory_link = 'https://dewha.co/cart/45351236862107:1';
+        var natural_link = 'https://dewha.co/cart/45351236894875:1';
+        //alert(ivory_link);
+        //alert(natural_link);
+        document.getElementById("link-ivory").setAttribute("href",ivory_link);
+        document.getElementById("link-natural").setAttribute("href",natural_link);
+		
+		let i = document.getElementById("link-ivory"); // reset active shade class
+        i.className = "";
+		let n = document.getElementById("link-natural"); // reset active shade class
+        n.className = "";
+		
+		// set class for selection
+		 let mgd = document.getElementById("product_mgd"); // set bundle 1 is selected/active
+         mgd.className = "circle_click";
+		 let mgd2 = document.getElementById("product_mgd2"); // Reset
+         mgd2.className = "circle_click";
+		 let mgd3 = document.getElementById("product_mgd3"); // Reset
+         mgd3.className = "circle_click active";
+		document.getElementById("checkout_link").setAttribute("href",'#');	 
+		document.getElementById("checkout_link").setAttribute("target",'');	 
+		 
+        return false;
+   }
+    
+    function SelectedIvory() {
+        var link = document.getElementById("link-ivory").getAttribute("href");
+        //alert(link);
+		//document.getElementById("link-ivory").className("active"); // add "active" class
+        document.getElementById("checkout_link").setAttribute("href",link);
+        document.getElementById("checkout_link").setAttribute("onclick",'checkoutClick(); return true;');
+		
+		 let i = document.getElementById("link-ivory");
+         i.className = "active";
+		 
+		 let n = document.getElementById("link-natural");
+         n.className = "";
+		
+		document.getElementById("checkout_link").setAttribute("target",'_blank');	 
+        return false;
+    }
+     function SelectedNatural() {
+        var link = document.getElementById("link-natural").getAttribute("href");
+        //alert(link);
+		//document.getElementById("link-natural").className("active"); // add "active" class
+        document.getElementById("checkout_link").setAttribute("href",link);
+        document.getElementById("checkout_link").setAttribute("onclick",'checkoutClick(); return true;');
+		
+		let i = document.getElementById("link-ivory");
+        i.className = "";
+		 
+		 let n = document.getElementById("link-natural");
+         n.className = "active";
+		
+		document.getElementById("checkout_link").setAttribute("target",'_blank');	
+        return false;
+    }
+    
+     function checkoutClick() {
+        var link = document.getElementById("checkout_link").getAttribute("href");
+        if(link=='#'){
+           alert('Please select Bundle and Shade!');
+           //preventDefault();
+//window.top.close();
+//location.reload();
+
+           return false;
+        } else {
+          return true;
+		  //alert('erererer');
+		  //window.open(link);
+        }
+       
+        
+    }
+    
+</script>
+<div class="selectible_shade">
+	<a href="#" id="link-ivory"  onclick="SelectedIvory(); return false;" class="active">Ivory</a>
+	<a href="#" id="link-natural"  onclick="SelectedNatural(); return false;">Natural</a>
+</div>
+
+<ul>
+	<li><a href="#" class="circle_click" id="product_mgd" onclick="product_mgd(); return false;">&nbsp;</a>Bundle1</li>
+	<li><a href="#" class="circle_click" id="product_mgd2" onclick="product_mgd2(); return false;">&nbsp;</a>Bundle2</li>
+	<li><a href="#" class="circle_click" id="product_mgd3" onclick="product_mgd3(); return false;">&nbsp;</a>Bundle3</li>
+</ul>
+
+<a href="https://dewha.co/cart/43903224807579:1" id="checkout_link" onclick="checkoutClick(); return false;" target="_blank">Checkout</a>
+
